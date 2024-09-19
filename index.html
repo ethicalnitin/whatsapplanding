@@ -91,6 +91,7 @@
 
         <!-- Get TradingView Premium Button -->
         <button
+            id="checkoutButton"
             onclick="trackCheckout();"
             class="bg-red-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
             Get your TradingView Premium
@@ -99,6 +100,10 @@
 
     <script>
       function trackCheckout() {
+        const button = document.getElementById('checkoutButton');
+        button.innerText = 'Processing...'; // Show "Processing..." text
+        button.disabled = true; // Disable the button to prevent multiple clicks
+
         // Browser-side tracking (Pixel)
         fbq('track', 'InitiateCheckout', {
             content_name: 'TradingView Premium Plan',
