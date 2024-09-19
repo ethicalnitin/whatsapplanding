@@ -35,20 +35,24 @@
             }
         }
 
-        /* Style for the countdown dialog */
-        .dialog-box {
+        /* Styles for the modal */
+        .modal {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: white;
             padding: 20px;
-            border: 2px solid black;
+            border-radius: 8px;
             z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
             display: none;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .dialog-overlay {
+        .overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -122,9 +126,9 @@
         </button>
     </div>
 
-    <!-- Countdown Dialog Box -->
-    <div id="dialogOverlay" class="dialog-overlay"></div>
-    <div id="dialogBox" class="dialog-box">
+    <!-- Countdown Modal -->
+    <div id="modalOverlay" class="overlay"></div>
+    <div id="countdownModal" class="modal">
         <p id="countdownText">You will be redirected to WhatsApp in 4 seconds...</p>
     </div>
 
@@ -134,15 +138,16 @@
         button.innerText = 'Processing...'; // Show "Processing..." text
         button.disabled = true; // Disable the button to prevent multiple clicks
 
-        // Show the countdown dialog
-        const dialogBox = document.getElementById('dialogBox');
-        const dialogOverlay = document.getElementById('dialogOverlay');
+        // Show the countdown modal
+        const modal = document.getElementById('countdownModal');
+        const overlay = document.getElementById('modalOverlay');
         const countdownText = document.getElementById('countdownText');
         let countdown = 4;
 
-        dialogOverlay.style.display = 'block';
-        dialogBox.style.display = 'block';
+        modal.style.display = 'block';
+        overlay.style.display = 'block';
 
+        // Countdown logic
         const interval = setInterval(() => {
             countdownText.innerText = `You will be redirected to WhatsApp in ${countdown} seconds...`;
             countdown--;
