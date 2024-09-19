@@ -56,26 +56,25 @@
 </head>
 <body class="bg-gray-100">
 
-<!-- Container for Blurred Box -->
+<!-- Announcement Bar -->
+<div class="announcement-wrapper py-2 border-b-2">
+    <div class="announcement text-black text-xs sm:text-sm">
+        Over 2300+ trusted clients. 100% Customer Satisfaction! Since 2022.✅&nbsp;&nbsp;&nbsp;&nbsp; 
+        Over 2300+ trusted clients. 100% Customer Satisfaction! Since 2022.✅&nbsp;&nbsp;&nbsp;&nbsp; 
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="w-full bg-white py-3 px-6 shadow-md flex justify-between items-center">
+    <div class="flex items-center">
+        <img src="lgo.jpeg" alt="Dexter Luxuries Logo" class="w-8 h-8 sm:w-10 md:w-12 rounded-full mr-2">
+        <h1 class="text-sm sm:text-base md:text-lg font-bold text-black uppercase">Dexter Luxuries</h1>
+    </div>
+</nav>
+
+<!-- Main Content (inside the transparent blurred box) -->
 <div class="min-h-screen flex items-center justify-center">
     <div class="bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-lg shadow-lg max-w-2xl w-full mx-4">
-        <!-- Announcement Bar -->
-        <div class="announcement-wrapper py-2 border-b-2">
-            <div class="announcement text-black text-xs sm:text-sm">
-                Over 2300+ trusted clients. 100% Customer Satisfaction! Since 2022.✅&nbsp;&nbsp;&nbsp;&nbsp; 
-                Over 2300+ trusted clients. 100% Customer Satisfaction! Since 2022.✅&nbsp;&nbsp;&nbsp;&nbsp; 
-            </div>
-        </div>
-
-        <!-- Navbar -->
-        <nav class="w-full bg-white py-3 px-6 shadow-md flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="lgo.jpeg" alt="Dexter Luxuries Logo" class="w-8 h-8 sm:w-10 md:w-12 rounded-full mr-2">
-                <h1 class="text-sm sm:text-base md:text-lg font-bold text-black uppercase">Dexter Luxuries</h1>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
         <div class="flex flex-col items-center justify-center">
             <!-- Verified Profile Section -->
             <div class="text-center mb-6">
@@ -125,7 +124,7 @@
             if (countdown < 0) {
                 clearInterval(interval);
                 // Pre-typed message
-                const preTypedMessage = "I need more info on TradingView. Is it available? Can I avail it on my personal mail ?";
+                const preTypedMessage = "I need more info on TradingView";
                 
                 // Redirect to WhatsApp with the pre-typed message
                 window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
