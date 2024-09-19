@@ -34,6 +34,34 @@
                 transform: translateX(-100%);
             }
         }
+
+        /* Modal styling */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            display: none; /* Hidden by default */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none; /* Hidden by default */
+        }
     </style>
 
     <!-- Facebook Pixel Code -->
@@ -84,22 +112,28 @@
 
             <!-- Section Above the Button -->
             <div class="text-center mb-6">
-    <p class="text-lg font-semibold">Unlock Your TradingView Premium Experience📊</p>
-    <p class="text-lg">Curated by: <span class="font-bold">Dexter Luxuries♤</span></p>
-    <p class="text-lg font-semibold">Choose from flexible plans: 3, 6, or 12 months</p>
-    <p class="text-lg">Get access to exclusive features, customer reviews, and trusted proofs by clicking the button below.🔘</p>
-    <p class="text-lg font-semibold text-red-600">Limited time offer—secure your plan now!🏃‍♂️</p>
-</div>
+                <p class="text-lg font-semibold">Unlock Your TradingView Premium Experience📊</p>
+                <p class="text-lg">Curated by: <span class="font-bold">Dexter Luxuries♤</span></p>
+                <p class="text-lg font-semibold">Choose from flexible plans: 3, 6, or 12 months</p>
+                <p class="text-lg">Get access to exclusive features, customer reviews, and trusted proofs by clicking the button below.🔘</p>
+                <p class="text-lg font-semibold text-red-600">Limited time offer—secure your plan now!🏃‍♂️</p>
+            </div>
 
             <!-- Get TradingView Premium Button -->
             <button
                 id="checkoutButton"
                 onclick="trackCheckout();"
-                class="bg-red-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
+                class="bg-blue-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
                 Proceed to Purchase
             </button>
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div id="modalOverlay" class="overlay"></div>
+<div id="countdownModal" class="modal">
+    <p id="countdownText">You will be redirected to WhatsApp in 3 seconds...</p>
 </div>
 
     <script>
@@ -112,20 +146,20 @@
         const modal = document.getElementById('countdownModal');
         const overlay = document.getElementById('modalOverlay');
         const countdownText = document.getElementById('countdownText');
-        let countdown = 4;
+        let countdown = 3;
 
         modal.style.display = 'block';
         overlay.style.display = 'block';
 
         // Countdown logic
         const interval = setInterval(() => {
-            countdownText.innerText = `You will be redirected to WhatsApp in ${countdown} seconds...✅`;
+            countdownText.innerText = `You will be redirected to WhatsApp in ${countdown} seconds..✅`;
             countdown--;
 
             if (countdown < 0) {
                 clearInterval(interval);
                 // Pre-typed message
-                const preTypedMessage = "I need more info on TradingView";
+                const preTypedMessage = "I need more info on TradingView.Is the plan still available?";
                 
                 // Redirect to WhatsApp with the pre-typed message
                 window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
