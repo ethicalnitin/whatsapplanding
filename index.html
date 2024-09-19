@@ -140,16 +140,23 @@
                 action_source: 'website'
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            // Redirect to WhatsApp after tracking is successful
-            window.location.href = 'https://wa.me/+919557338330';
-        })
-        .catch(error => {
-            console.error('Error tracking event:', error);
-            // Still redirect the user to WhatsApp even if tracking fails
-            window.location.href = 'https://wa.me/+919557338330';
-        });
+       .then(response => response.json())
+.then(data => {
+    // Pre-typed message
+    const preTypedMessage = "I need more info on TradingView";
+    
+    // Redirect to WhatsApp with the pre-typed message
+    window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
+})
+.catch(error => {
+    console.error('Error tracking event:', error);
+    
+    // Pre-typed message in case of failure
+    const preTypedMessage = "I need more info on TradingView";
+    
+    // Still redirect the user to WhatsApp with the pre-typed message even if tracking fails
+    window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
+});
       }
     </script>
 </body>
