@@ -34,6 +34,30 @@
                 transform: translateX(-100%);
             }
         }
+
+        /* Style for the countdown dialog */
+        .dialog-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            z-index: 1000;
+            display: none;
+        }
+
+        .dialog-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
     </style>
 
     <!-- Facebook Pixel Code -->
@@ -98,11 +122,40 @@
         </button>
     </div>
 
+    <!-- Countdown Dialog Box -->
+    <div id="dialogOverlay" class="dialog-overlay"></div>
+    <div id="dialogBox" class="dialog-box">
+        <p id="countdownText">You will be redirected to WhatsApp in 4 seconds...</p>
+    </div>
+
     <script>
       function trackCheckout() {
         const button = document.getElementById('checkoutButton');
         button.innerText = 'Processing...'; // Show "Processing..." text
         button.disabled = true; // Disable the button to prevent multiple clicks
+
+        // Show the countdown dialog
+        const dialogBox = document.getElementById('dialogBox');
+        const dialogOverlay = document.getElementById('dialogOverlay');
+        const countdownText = document.getElementById('countdownText');
+        let countdown = 4;
+
+        dialogOverlay.style.display = 'block';
+        dialogBox.style.display = 'block';
+
+        const interval = setInterval(() => {
+            countdownText.innerText = `You will be redirected to WhatsApp in ${countdown} seconds...`;
+            countdown--;
+
+            if (countdown < 0) {
+                clearInterval(interval);
+                // Pre-typed message
+                const preTypedMessage = "I need more info on TradingView";
+                
+                // Redirect to WhatsApp with the pre-typed message
+                window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
+            }
+        }, 1000);
 
         // Browser-side tracking (Pixel)
         fbq('track', 'InitiateCheckout', {
@@ -140,23 +193,13 @@
                 action_source: 'website'
             })
         })
-       .then(response => response.json())
-.then(data => {
-    // Pre-typed message
-    const preTypedMessage = "I need more info on TradingView";
-    
-    // Redirect to WhatsApp with the pre-typed message
-    window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
-})
-.catch(error => {
-    console.error('Error tracking event:', error);
-    
-    // Pre-typed message in case of failure
-    const preTypedMessage = "I need more info on TradingView";
-    
-    // Still redirect the user to WhatsApp with the pre-typed message even if tracking fails
-    window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
-});
+        .then(response => response.json())
+        .then(data => {
+            console.log("Tracking successful");
+        })
+        .catch(error => {
+            console.error('Error tracking event:', error);
+        });
       }
     </script>
 </body>
