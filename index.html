@@ -111,28 +111,35 @@ src="https://www.facebook.com/tr?id=1726634221453397&ev=PageView&noscript=1"
             </div>
 
             <!-- Section Above the Button -->
-          <div class="mb-6 text-left mx-auto max-w-lg">
-    <p class="text-xl font-bold text-center">✨ TradingView Premium Plans</p>
- <p class="text-lg font-semibold mt-4">What's included:</p>
-    <ul class="list-disc pl-6 text-base">
-        <li>✅ Full access to advanced charting tools</li>
-        <li>📈 Real-time market data and alerts</li>
-        <li>🔍 In-depth analysis for better decision-making</li>
-        <li>📊 Multiple device access: use it on mobile, tablet, and desktop</li>
-    </ul>
-    
-    <p class="text-lg font-bold text-red-600 mt-4 text-center">⏳Limited time offer—secure your plan now!</p>
-</div>
+            <div class="mb-6 text-left mx-auto max-w-lg">
+                <p class="text-xl font-bold text-center">✨ TradingView Premium Plans</p>
+                <p class="text-lg font-semibold mt-4">What's included:</p>
+                <ul class="list-disc pl-6 text-base">
+                    <li>✅ Full access to advanced charting tools</li>
+                    <li>📈 Real-time market data and alerts</li>
+                    <li>🔍 In-depth analysis for better decision-making</li>
+                    <li>📊 Multiple device access: use it on mobile, tablet, and desktop</li>
+                </ul>
+                <p class="text-lg font-bold text-red-600 mt-4 text-center">⏳ Limited time offer—secure your plan now!</p>
+            </div>
 
+            <!-- Buttons Section -->
+            <div class="flex space-x-4">
+                <!-- Buy Directly from Website Button -->
+                <button
+                    onclick="window.location.href='https://digitalstore.cybermafia.shop';"
+                    class="bg-green-500 text-white py-3 px-8 rounded-lg hover:bg-green-600 transition duration-300 shadow-md text-lg font-bold">
+                    Buy Directly from Website
+                </button>
 
-
-            <!-- Get TradingView Premium Button -->
-            <button
-                id="checkoutButton"
-                onclick="trackCheckout();"
-                class="bg-blue-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
-                Proceed
-            </button>
+                <!-- Buy on WhatsApp Button -->
+                <button
+                    id="checkoutButton"
+                    onclick="trackCheckout();"
+                    class="bg-blue-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
+                    Buy on WhatsApp
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -143,8 +150,8 @@ src="https://www.facebook.com/tr?id=1726634221453397&ev=PageView&noscript=1"
     <p id="countdownText">You will be redirected to WhatsApp in 3 seconds...</p>
 </div>
 
-    <script>
-      function trackCheckout() {
+<script>
+    function trackCheckout() {
         const button = document.getElementById('checkoutButton');
         button.innerText = 'Processing...'; // Show "Processing..." text
         button.disabled = true; // Disable the button to prevent multiple clicks
@@ -216,7 +223,8 @@ src="https://www.facebook.com/tr?id=1726634221453397&ev=PageView&noscript=1"
         .catch(error => {
             console.error('Error tracking event:', error);
         });
-      }
-    </script>
+    }
+</script>
+
 </body>
 </html>
