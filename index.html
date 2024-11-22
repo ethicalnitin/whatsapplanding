@@ -101,27 +101,24 @@ src="https://www.facebook.com/tr?id=1726634221453397&ev=PageView&noscript=1"
 </nav>
 
 <!-- Main Content (inside the transparent blurred box) -->
-<div class="min-h-screen flex justify-center">
-    <div class="bg-white bg-opacity-10 backdrop-blur-md p-1 rounded-lg shadow-lg max-w-2xl w-full mx-4">
-        <div class="flex flex-col items-center justify-center">
-          
-
-            <!-- Section Above the Buttons -->
-        
-
-            <!-- Buttons Section -->
-            <div class="flex flex-col space-y-4">
-                <!-- Buy Directly from Website Button -->
-              
-
-                <!-- Buy on WhatsApp Button -->
-                <button
-                    id="checkoutButton"
-                    onclick="trackCheckout();"
-                    class="bg-blue-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
-                    Proceed Now
-                </button>
+<div class="min-h-screen flex justify-center items-center">
+    <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-lg shadow-lg max-w-2xl w-full mx-4">
+        <div class="flex flex-col items-center justify-center space-y-8">
+            
+            <!-- Revolving TradingView Logo -->
+            <div class="relative h-24 w-24">
+                <img src="lgo.jpeg" 
+                     alt="TradingView Logo" 
+                     class="absolute inset-0 h-full w-full object-contain animate-spin-slow">
             </div>
+            
+            <!-- Proceed Now Button -->
+            <button
+                id="checkoutButton"
+                onclick="trackCheckout();"
+                class="bg-blue-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
+                Proceed Now
+            </button>
         </div>
     </div>
 </div>
@@ -131,6 +128,23 @@ src="https://www.facebook.com/tr?id=1726634221453397&ev=PageView&noscript=1"
 <div id="countdownModal" class="modal">
     <p id="countdownText">You will be redirected to WhatsApp in 3 seconds...</p>
 </div>
+
+<!-- Add Tailwind CSS Animation for Logo Spin -->
+<style>
+    @keyframes spin-slow {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .animate-spin-slow {
+        animation: spin-slow 5s linear infinite; /* Adjust 5s for desired speed */
+    }
+</style>
+
 
 <script>
     function trackCheckout() {
