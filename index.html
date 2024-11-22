@@ -101,27 +101,25 @@ src="https://www.facebook.com/tr?id=1726634221453397&ev=PageView&noscript=1"
 </nav>
 
 <!-- Main Content (inside the transparent blurred box) -->
-<div class="min-h-screen flex justify-center items-center">
-    <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-lg shadow-lg max-w-2xl w-full mx-4">
-        <div class="flex flex-col items-center justify-center space-y-8">
-            
-            <!-- Revolving TradingView Logo -->
-            <div>
-                <img src="Digital Marketing Ebook Large Rectangle Ad (Instagram Post).png" 
-                     alt="TradingView Logo" 
-                    
-            </div>
-            
-            <!-- Proceed Now Button -->
-            <button
-                id="checkoutButton"
-                onclick="trackCheckout();"
-                class="bg-blue-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
-                Proceed Now
-            </button>
-        </div>
+<div class="min-h-screen flex justify-center items-center bg-gray-100">
+    <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-lg shadow-lg max-w-2xl w-full mx-4 flex flex-col items-center space-y-8">
+        
+        <!-- Product Image -->
+        <img src="Digital Marketing Ebook Large Rectangle Ad (Instagram Post).png" 
+             alt="Product Image" 
+             class="w-full max-w-md rounded-lg shadow-md">
+
+        <!-- Proceed Now Button -->
+        <button
+            id="checkoutButton"
+            onclick="trackCheckout();"
+            class="bg-blue-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
+            Proceed Now
+        </button>
+        
     </div>
 </div>
+
 
 <!-- Modal -->
 <div id="modalOverlay" class="overlay"></div>
