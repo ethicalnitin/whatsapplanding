@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dexter Luxuries</title>
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Adding Tailwind CSS -->
-    
-    <style>
+    <script src="https://cdn.tailwindcss.com"></script> <style>
         /* Custom CSS for the moving announcement bar */
         .announcement-wrapper {
             overflow: hidden;
@@ -35,7 +33,7 @@
             }
         }
 
-        /* Modal styling */
+        /* Modal styling - These styles are no longer needed for the direct WhatsApp redirection but are kept in case of future use */
         .modal {
             position: fixed;
             top: 50%;
@@ -64,29 +62,24 @@
         }
     </style>
 
-  <!-- Meta Pixel Code -->
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2849922861845642');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2849922861845642&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<!-- End Meta Pixel Code -->
-</head>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2849922861845642');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2849922861845642&ev=PageView&noscript=1"
+    /></noscript>
+    </head>
 <body class="bg-gray-100">
 
-<!-- Announcement Bar -->
 <div class="announcement-wrapper py-2 border-b-2">
     <div class="announcement text-black text-xs sm:text-sm">
         Over 2300+ trusted clients. 100% Customer Satisfaction! Since 2022.✅&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -94,7 +87,6 @@ src="https://www.facebook.com/tr?id=2849922861845642&ev=PageView&noscript=1"
     </div>
 </div>
 
-<!-- Navbar -->
 <nav class="w-full bg-white py-3 px-6 shadow-md flex justify-between items-center">
     <a href="https://cybermafia.shop/product/7" class="flex items-center">
     <img src="lgo.jpeg" alt="Dexter Luxuries Logo" class="w-8 h-8 sm:w-10 md:w-12 rounded-full mr-2">
@@ -106,17 +98,14 @@ src="https://www.facebook.com/tr?id=2849922861845642&ev=PageView&noscript=1"
 <div class="flex justify-center items-center bg-gray-100 px-6">
     <div class="bg-white bg-opacity-10 backdrop-blur-md p-3 rounded-lg shadow-lg max-w-2xl w-full">
         
-        <!-- Heading -->
         <h1 class="text-xl md:text-2xl font-bold text-left text-gray-800 mb-2">
             #3511 - TradingView Premium Plans
         </h1>
         
-        <!-- Product Image -->
         <img src="SCS.png" 
              alt="Product Image" 
              class="w-full max-w-md mx-auto rounded-lg shadow-md mb-6">
 
-        <!-- Bullet Points -->
         <ul class="list-disc pl-6 space-y-2 text-gray-700">
             <li>Activation on personal email🤝</li>
             <li>Official plans, No 3rd-Party</li>
@@ -124,11 +113,10 @@ src="https://www.facebook.com/tr?id=2849922861845642&ev=PageView&noscript=1"
             <li>Renewal at same price*</li>
         </ul>
 
-        <!-- Proceed Now Button -->
         <div class="flex justify-center mt-6">
             <button
                 id="checkoutButton"
-                onclick="trackCheckout();"
+                onclick="trackAndRedirect();"
                 class="bg-blue-500 text-white py-3 px-8 rounded-lg hover:bg-red-600 transition duration-300 shadow-md text-lg font-bold">
                 Proceed Now
             </button>
@@ -137,48 +125,17 @@ src="https://www.facebook.com/tr?id=2849922861845642&ev=PageView&noscript=1"
     </div>
 </div>
 
-
-
-
-
-<!-- Modal -->
-<div id="modalOverlay" class="overlay"></div>
-<div id="countdownModal" class="modal">
-    <p id="countdownText">You will be redirected to WhatsApp in 1 seconds...</p>
-</div>
-
-
-
-
 <script>
-    function trackCheckout() {
+    function trackAndRedirect() {
         const button = document.getElementById('checkoutButton');
-        button.innerText = 'Processing...'; // Show "Processing..." text
+        button.innerText = 'Redirecting...'; // Show "Redirecting..." text
         button.disabled = true; // Disable the button to prevent multiple clicks
 
-        // Show the countdown modal
-        const modal = document.getElementById('countdownModal');
-        const overlay = document.getElementById('modalOverlay');
-        const countdownText = document.getElementById('countdownText');
-        let countdown = 0;
-
-        modal.style.display = 'block';
-        overlay.style.display = 'block';
-
-        // Countdown logic
-        const interval = setInterval(() => {
-            countdownText.innerText = `You will be redirected to WhatsApp in ${countdown} seconds..✅`;
-            countdown--;
-
-            if (countdown < 0) {
-                clearInterval(interval);
-                // Pre-typed message
-                const preTypedMessage = "Is the plan still available?";
-                
-                // Redirect to WhatsApp with the pre-typed message
-                window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
-            }
-        }, 1000);
+        // Pre-typed message
+        const preTypedMessage = "Is the plan still available?";
+        
+        // Redirect to WhatsApp with the pre-typed message immediately
+        window.location.href = `https://wa.me/+919557338330?text=${encodeURIComponent(preTypedMessage)}`;
 
         // Browser-side tracking (Pixel)
         fbq('track', 'InitiateCheckout', {
@@ -225,7 +182,6 @@ src="https://www.facebook.com/tr?id=2849922861845642&ev=PageView&noscript=1"
         });
     }
 </script>
-
 
 </body>
 </html>
